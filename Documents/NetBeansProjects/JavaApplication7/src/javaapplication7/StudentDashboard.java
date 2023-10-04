@@ -42,8 +42,7 @@ public class StudentDashboard extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         viewnotice = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        enrollnotice = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        enrollnotice = new javax.swing.JButton();
         JOptionPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -73,38 +72,15 @@ public class StudentDashboard extends javax.swing.JFrame {
 
         jPanel5.add(viewnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 220, 40));
 
-        enrollnotice.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                enrollnoticeMouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                enrollnoticeMousePressed(evt);
+        enrollnotice.setText("Workshop");
+        enrollnotice.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enrollnoticeActionPerformed(evt);
             }
         });
-
-        jLabel2.setText("workshop");
-
-        javax.swing.GroupLayout enrollnoticeLayout = new javax.swing.GroupLayout(enrollnotice);
-        enrollnotice.setLayout(enrollnoticeLayout);
-        enrollnoticeLayout.setHorizontalGroup(
-            enrollnoticeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(enrollnoticeLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
-        enrollnoticeLayout.setVerticalGroup(
-            enrollnoticeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(enrollnoticeLayout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1, Short.MAX_VALUE))
-        );
-
-        jPanel5.add(enrollnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        jPanel5.add(enrollnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 220, 50));
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 280, 430));
-
-        JOptionPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout JOptionPanel1Layout = new javax.swing.GroupLayout(JOptionPanel1);
         JOptionPanel1.setLayout(JOptionPanel1Layout);
@@ -139,19 +115,20 @@ public class StudentDashboard extends javax.swing.JFrame {
           enrollnotice.setBackground(DefaultColor);
 
     }//GEN-LAST:event_viewnoticeMousePressed
-
-    private void enrollnoticeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollnoticeMousePressed
+private void openButtonInTable1() {
+    ButtonInTable1 buttonInTable1 = new ButtonInTable1();
+    buttonInTable1.setLocationRelativeTo(this); // Center the new frame relative to StudentDashboard
+    buttonInTable1.setVisible(true);
+}
+    private void enrollnoticeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enrollnoticeActionPerformed
         // TODO add your handling code here:
-           viewnotice.setBackground(DefaultColor);
-          enrollnotice.setBackground(ClickedColor);
-    }//GEN-LAST:event_enrollnoticeMousePressed
-
-    private void enrollnoticeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollnoticeMouseClicked
-        // TODO add your handling code here:
-        Studentworkshop ab = new Studentworkshop();
-        JOptionPanel1.add(ab);
-        ab.setVisible(true);
-    }//GEN-LAST:event_enrollnoticeMouseClicked
+     //   dispose();
+      /*  ButtonInTable1 r = new ButtonInTable1();
+        r.setTitle("enroll in  workshop  ");
+        r.setLocationRelativeTo(null);
+        r.setVisible(true);*/
+       openButtonInTable1();
+    }//GEN-LAST:event_enrollnoticeActionPerformed
   
 
 
@@ -192,9 +169,8 @@ public class StudentDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JOptionPanel1;
-    private javax.swing.JPanel enrollnotice;
+    private javax.swing.JButton enrollnotice;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

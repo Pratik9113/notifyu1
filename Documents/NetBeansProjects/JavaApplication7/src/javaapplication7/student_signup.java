@@ -123,6 +123,11 @@ public class student_signup extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(246, 208, 129));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setText("Admin Login");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 430, 150, 30));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 380, 510));
@@ -169,11 +174,16 @@ public class student_signup extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
-        Register r = new Register();
-        r.setTitle("Register a User ");
-        r.setLocationRelativeTo(null);
-        r.setVisible(true);
+        AdminLogin rs = new AdminLogin();
+        rs.setTitle("admin login ");
+        rs.setLocationRelativeTo(null);
+        rs.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
