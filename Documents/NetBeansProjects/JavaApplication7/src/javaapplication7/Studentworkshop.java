@@ -4,9 +4,13 @@
  */
 package javaapplication7;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
@@ -33,9 +37,24 @@ public class Studentworkshop extends javax.swing.JInternalFrame {
             model.setRowCount(0);
 
             while (resultSet.next()) {
-                 int workshpId = resultSet.getInt("workshop_id");
+                 int workshopId = resultSet.getInt("workshop_id");
                 String workshopText = resultSet.getString("workshop_text");
-                model.addRow(new Object[]{workshpId,workshopText});
+                 //JButton enrollButton = createEnrollButton(workshopId);
+                model.addRow(new Object[]{workshopId,workshopText});
+                
+                // updated part
+                JButton enrollButtona = new JButton("Enroll");
+                 enrollButtona.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            // Handle the enrollment action here
+                            // For now, show a message dialog
+                            JOptionPane.showMessageDialog(null, "Enrolling in Workshop ID: " + workshopId);
+                        }
+                    });
+                 
+                 // Add workshop data and the enroll button to the table row
+                    model.addRow(new Object[]{workshopId, workshopText, enrollButtona});
             }
 
             resultSet.close();
@@ -51,6 +70,19 @@ public class Studentworkshop extends javax.swing.JInternalFrame {
         }
     }
 }
+  /*  private JButton createEnrollButton(int workshopId) {
+        JButton enrollButton = new JButton("Enroll");
+        enrollButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Handle the enrollment action here
+                // For now, show a message dialog
+                JOptionPane.showMessageDialog(null, "Enrolling in Workshop ID: " + workshopId);
+                // Add your enrollment logic here
+            }
+        });
+        return enrollButton;
+    }*/
     public Studentworkshop() {
         initComponents();
          this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
@@ -85,7 +117,7 @@ public class Studentworkshop extends javax.swing.JInternalFrame {
                 {null, null, null}
             },
             new String [] {
-                "sworkshop_id", "sworkshop_text", "viewworkshop"
+                "workshop_id", "workshop_text", "Enroll"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -97,8 +129,19 @@ public class Studentworkshop extends javax.swing.JInternalFrame {
             }
         });
         jScrollPane1.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setMinWidth(50);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
+            jTable1.getColumnModel().getColumn(0).setMaxWidth(50);
+            jTable1.getColumnModel().getColumn(1).setMinWidth(300);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(300);
+            jTable1.getColumnModel().getColumn(1).setMaxWidth(300);
+            jTable1.getColumnModel().getColumn(2).setMinWidth(2000);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(2000);
+            jTable1.getColumnModel().getColumn(2).setMaxWidth(2000);
+        }
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 390));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 520, 390));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 400));
 

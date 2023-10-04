@@ -37,31 +37,27 @@ public class StudentDashboard extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        JOptionPanel1 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         viewnotice = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         enrollnotice = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        JOptionPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(990, 510));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 102, 0));
-        jLabel3.setText("Student Dashboard");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 760, 90));
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel5.setBackground(new java.awt.Color(167, 118, 62));
+        jPanel4.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 80));
+
+        jPanel5.setBackground(new java.awt.Color(0, 0, 0));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        viewnotice.setBackground(new java.awt.Color(108, 176, 255));
         viewnotice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 viewnoticeMouseClicked(evt);
@@ -72,13 +68,11 @@ public class StudentDashboard extends javax.swing.JFrame {
         });
         viewnotice.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("ViewNotice");
-        viewnotice.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 110, 39));
+        viewnotice.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 0, 84, 39));
 
-        jPanel5.add(viewnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 230, 40));
+        jPanel5.add(viewnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 220, 40));
 
-        enrollnotice.setBackground(new java.awt.Color(108, 176, 255));
         enrollnotice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 enrollnoticeMouseClicked(evt);
@@ -88,56 +82,68 @@ public class StudentDashboard extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabel2.setText("Workshop");
+        jLabel2.setText("workshop");
 
         javax.swing.GroupLayout enrollnoticeLayout = new javax.swing.GroupLayout(enrollnotice);
         enrollnotice.setLayout(enrollnoticeLayout);
         enrollnoticeLayout.setHorizontalGroup(
             enrollnoticeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, enrollnoticeLayout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+            .addGroup(enrollnoticeLayout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
         );
         enrollnoticeLayout.setVerticalGroup(
             enrollnoticeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(enrollnoticeLayout.createSequentialGroup()
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 1, Short.MAX_VALUE))
         );
 
-        jPanel5.add(enrollnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 230, 50));
+        jPanel5.add(enrollnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 280, 430));
+
+        JOptionPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout JOptionPanel1Layout = new javax.swing.GroupLayout(JOptionPanel1);
         JOptionPanel1.setLayout(JOptionPanel1Layout);
         JOptionPanel1Layout.setHorizontalGroup(
             JOptionPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(JOptionPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 680, Short.MAX_VALUE)
         );
         JOptionPanel1Layout.setVerticalGroup(
             JOptionPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JOptionPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
-        jPanel3.add(JOptionPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 300, 200));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication7/blank_bulletin_board_800_whtrees.jpg"))); // NOI18N
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 970, 510));
+        jPanel3.add(JOptionPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, 680, 430));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void viewnoticeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewnoticeMouseClicked
+        // TODO add your handling code here:
+         Studentnotice1 upsa= new Studentnotice1();
+          JOptionPanel1.add(upsa);//setVisible(true);
+        upsa.setVisible(true);
+        
+     
+    }//GEN-LAST:event_viewnoticeMouseClicked
+
+    private void viewnoticeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewnoticeMousePressed
+        // TODO add your handling code here:
+          viewnotice.setBackground(ClickedColor);
+          enrollnotice.setBackground(DefaultColor);
+
+    }//GEN-LAST:event_viewnoticeMousePressed
+
     private void enrollnoticeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollnoticeMousePressed
         // TODO add your handling code here:
-        viewnotice.setBackground(DefaultColor);
-        enrollnotice.setBackground(ClickedColor);
+           viewnotice.setBackground(DefaultColor);
+          enrollnotice.setBackground(ClickedColor);
     }//GEN-LAST:event_enrollnoticeMousePressed
 
     private void enrollnoticeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollnoticeMouseClicked
@@ -146,19 +152,6 @@ public class StudentDashboard extends javax.swing.JFrame {
         JOptionPanel1.add(ab);
         ab.setVisible(true);
     }//GEN-LAST:event_enrollnoticeMouseClicked
-
-    private void viewnoticeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewnoticeMousePressed
-        // TODO add your handling code here:
-        viewnotice.setBackground(ClickedColor);
-        enrollnotice.setBackground(DefaultColor);
-    }//GEN-LAST:event_viewnoticeMousePressed
-
-    private void viewnoticeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewnoticeMouseClicked
-        // TODO add your handling code here:
-        Studentnotice1 upsa= new Studentnotice1();
-        JOptionPanel1.add(upsa);//setVisible(true);
-        upsa.setVisible(true);
-    }//GEN-LAST:event_viewnoticeMouseClicked
   
 
 
@@ -202,9 +195,8 @@ public class StudentDashboard extends javax.swing.JFrame {
     private javax.swing.JPanel enrollnotice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel viewnotice;
     // End of variables declaration//GEN-END:variables
