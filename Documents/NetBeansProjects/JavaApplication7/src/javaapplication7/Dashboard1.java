@@ -44,7 +44,6 @@ public class Dashboard1 extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         uploadnotice = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        workshop1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         JDesktopPanel = new javax.swing.JPanel();
 
@@ -94,7 +93,7 @@ public class Dashboard1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3.add(workshop, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 170, 50));
+        jPanel3.add(workshop, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 170, 50));
 
         uploadnotice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -125,29 +124,7 @@ public class Dashboard1 extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel3.add(uploadnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 170, 40));
-
-        workshop1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                workshop1MouseClicked(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                workshop1MousePressed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout workshop1Layout = new javax.swing.GroupLayout(workshop1);
-        workshop1.setLayout(workshop1Layout);
-        workshop1Layout.setHorizontalGroup(
-            workshop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
-        );
-        workshop1Layout.setVerticalGroup(
-            workshop1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 50, Short.MAX_VALUE)
-        );
-
-        jPanel3.add(workshop1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 170, 50));
+        jPanel3.add(uploadnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 170, 40));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication7/WhatsApp Image 2023-10-03 at 20.22.44.jpeg"))); // NOI18N
         jLabel5.setText("jLabel5");
@@ -201,14 +178,6 @@ public class Dashboard1 extends javax.swing.JFrame {
         up.setVisible(true);
     }//GEN-LAST:event_workshopMouseClicked
 
-    private void workshop1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_workshop1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_workshop1MouseClicked
-
-    private void workshop1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_workshop1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_workshop1MousePressed
-
     /**
      * @param args the command line arguments
      */
@@ -255,6 +224,5 @@ public class Dashboard1 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel uploadnotice;
     private javax.swing.JPanel workshop;
-    private javax.swing.JPanel workshop1;
     // End of variables declaration//GEN-END:variables
 }
