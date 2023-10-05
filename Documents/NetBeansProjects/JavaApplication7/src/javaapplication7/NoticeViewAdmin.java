@@ -14,10 +14,10 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author 91799
  */
-public class StudentWorkshop extends javax.swing.JInternalFrame {
+public class NoticeViewAdmin extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form StudentWorkshop
+     * Creates new form NoticeViewAdmin
      */
     
     private void populateTableFromDatabase() {
@@ -26,7 +26,7 @@ public class StudentWorkshop extends javax.swing.JInternalFrame {
     if (dbconn != null) {
         try {
            
-            String sqlQuery = "SELECT workshop_id, workshop_text FROM workshop";
+            String sqlQuery = "SELECT notice_id, notice_text FROM admindashboard";
             PreparedStatement st = dbconn.prepareStatement(sqlQuery);
             ResultSet resultSet = st.executeQuery(sqlQuery);
             
@@ -34,8 +34,8 @@ public class StudentWorkshop extends javax.swing.JInternalFrame {
             model.setRowCount(0);
 
             while (resultSet.next()) {
-                 int noticeId = resultSet.getInt("workshop_id");
-                String noticeText = resultSet.getString("workshop_text");
+                 int noticeId = resultSet.getInt("notice_id");
+                String noticeText = resultSet.getString("notice_text");
                 model.addRow(new Object[]{noticeId,noticeText});
             }
 
@@ -52,9 +52,9 @@ public class StudentWorkshop extends javax.swing.JInternalFrame {
         }
     }
 }
-    public StudentWorkshop() {
+    public NoticeViewAdmin() {
         initComponents();
-        this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
+         this.setBorder(javax.swing.BorderFactory.createEmptyBorder(0,0,0,0));
         BasicInternalFrameUI uis = (BasicInternalFrameUI)this.getUI();
         uis.setNorthPane(null);
         
@@ -71,8 +71,13 @@ public class StudentWorkshop extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -82,53 +87,32 @@ public class StudentWorkshop extends javax.swing.JInternalFrame {
                 {null, null}
             },
             new String [] {
-                "Wr_no", "workshop_text"
+                "notice_id", "notice_text"
             }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
+        ));
         jTable1.setAutoResizeMode(0
         );
         jTable1.setRowHeight(40);
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setMinWidth(50);
-            jTable1.getColumnModel().getColumn(0).setPreferredWidth(50);
-            jTable1.getColumnModel().getColumn(0).setMaxWidth(50);
-            jTable1.getColumnModel().getColumn(1).setMinWidth(5000);
-            jTable1.getColumnModel().getColumn(1).setPreferredWidth(5000);
-            jTable1.getColumnModel().getColumn(1).setMaxWidth(5000);
+            jTable1.getColumnModel().getColumn(0).setMinWidth(70);
+            jTable1.getColumnModel().getColumn(0).setPreferredWidth(70);
+            jTable1.getColumnModel().getColumn(0).setMaxWidth(70);
+            jTable1.getColumnModel().getColumn(1).setMinWidth(3000);
+            jTable1.getColumnModel().getColumn(1).setPreferredWidth(3000);
+            jTable1.getColumnModel().getColumn(1).setMaxWidth(3000);
         }
-        jTable1.getAccessibleContext().setAccessibleDescription("");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(115, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 529, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 510, 360));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 760, 380));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

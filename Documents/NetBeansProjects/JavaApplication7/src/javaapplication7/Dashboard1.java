@@ -24,6 +24,7 @@ public class Dashboard1 extends javax.swing.JFrame {
         // set default color 
          uploadnotice.setBackground(DefaultColor);
          workshop.setBackground(DefaultColor);
+         viewnotice.setBackground(DefaultColor);
          //ready.setBackground(DefaultColor);
     }
 
@@ -45,6 +46,8 @@ public class Dashboard1 extends javax.swing.JFrame {
         uploadnotice = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
+        viewnotice = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         JDesktopPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -130,6 +133,22 @@ public class Dashboard1 extends javax.swing.JFrame {
         jLabel5.setText("jLabel5");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 90, 90));
 
+        viewnotice.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                viewnoticeMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                viewnoticeMousePressed(evt);
+            }
+        });
+        viewnotice.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel3.setText("ViewNotice");
+        viewnotice.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 14, 93, -1));
+
+        jPanel3.add(viewnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 170, 50));
+
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 220, 420));
 
         javax.swing.GroupLayout JDesktopPanelLayout = new javax.swing.GroupLayout(JDesktopPanel);
@@ -154,12 +173,14 @@ public class Dashboard1 extends javax.swing.JFrame {
         // TODO add your handling code here:
         uploadnotice.setBackground(ClickedColor);
          workshop.setBackground(DefaultColor);
+         viewnotice.setBackground(DefaultColor);
     }//GEN-LAST:event_uploadnoticeMousePressed
 
     private void workshopMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_workshopMousePressed
         // TODO add your handling code here:
         uploadnotice.setBackground(DefaultColor);
          workshop.setBackground(ClickedColor);
+         viewnotice.setBackground(DefaultColor);
     }//GEN-LAST:event_workshopMousePressed
 
     private void uploadnoticeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_uploadnoticeMouseClicked
@@ -177,6 +198,23 @@ public class Dashboard1 extends javax.swing.JFrame {
         JDesktopPanel.add(up);//setVisible(true);
         up.setVisible(true);
     }//GEN-LAST:event_workshopMouseClicked
+
+    private void viewnoticeMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewnoticeMousePressed
+        // TODO add your handling code here:
+         uploadnotice.setBackground(DefaultColor);
+         workshop.setBackground(DefaultColor);
+         viewnotice.setBackground(ClickedColor);
+        
+    }//GEN-LAST:event_viewnoticeMousePressed
+
+    private void viewnoticeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_viewnoticeMouseClicked
+        // TODO add your handling code here:// ans 
+         NoticeViewAdmin ups= new  NoticeViewAdmin ();
+        //JDesktopPanel.removeALL;
+        JDesktopPanel.add(ups);//setVisible(true);
+        ups.setVisible(true);
+        
+    }//GEN-LAST:event_viewnoticeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -217,12 +255,14 @@ public class Dashboard1 extends javax.swing.JFrame {
     private javax.swing.JPanel JDesktopPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel uploadnotice;
+    private javax.swing.JPanel viewnotice;
     private javax.swing.JPanel workshop;
     // End of variables declaration//GEN-END:variables
 }

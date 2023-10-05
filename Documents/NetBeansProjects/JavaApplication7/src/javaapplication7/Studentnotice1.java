@@ -118,6 +118,7 @@ public class Studentnotice1 extends javax.swing.JInternalFrame {
             }
         });
         jTable1.setAutoResizeMode(0);
+        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTable1.setRowHeight(30);
         jScrollPane1.setViewportView(jTable1);
         if (jTable1.getColumnModel().getColumnCount() > 0) {
