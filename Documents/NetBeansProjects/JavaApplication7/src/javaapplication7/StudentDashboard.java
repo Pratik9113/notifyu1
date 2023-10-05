@@ -39,10 +39,12 @@ public class StudentDashboard extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         viewnotice = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         enrollnotice = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         JOptionPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,6 +54,11 @@ public class StudentDashboard extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(255, 102, 102));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        jLabel2.setText("Student Dashboard ");
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, 300, 40));
+
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 80));
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
@@ -67,18 +74,23 @@ public class StudentDashboard extends javax.swing.JFrame {
         });
         viewnotice.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setText("ViewNotice");
-        viewnotice.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 0, 84, 39));
+        viewnotice.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 120, 39));
 
-        jPanel5.add(viewnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 220, 40));
+        jPanel5.add(viewnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 220, 50));
 
+        enrollnotice.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         enrollnotice.setText("Workshop");
         enrollnotice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 enrollnoticeActionPerformed(evt);
             }
         });
-        jPanel5.add(enrollnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 220, 50));
+        jPanel5.add(enrollnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 220, 50));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication7/resize-1696465088436896598studentlogovector.jpg"))); // NOI18N
+        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, 130, 100));
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 280, 430));
 
@@ -171,6 +183,8 @@ private void openButtonInTable1() {
     private javax.swing.JPanel JOptionPanel1;
     private javax.swing.JButton enrollnotice;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

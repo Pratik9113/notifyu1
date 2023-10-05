@@ -174,15 +174,19 @@ public class student_signup extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dispose();
-        AdminLogin rs = new AdminLogin();
-        rs.setTitle("admin login ");
-        rs.setLocationRelativeTo(null);
-        rs.setVisible(true);
+        Register r = new Register();
+        r.setTitle("admin login ");
+        r.setLocationRelativeTo(null);
+        r.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         dispose();
+        AdminLogin rs = new AdminLogin();
+        rs.setTitle("admin login ");
+        rs.setLocationRelativeTo(null);
+        rs.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -282,9 +286,9 @@ public class student_signup extends javax.swing.JFrame {
                 // User is authenticated, you can perform actions here
                 dispose();
                 //Dashboard1 d = new Dashboard1();
-                Dashboard1 d = new Dashboard1();
-                d.setTitle("Dashboard");
-                d.setVisible(true);
+                StudentDashboard sd = new  StudentDashboard ();
+                sd.setTitle("Dashboard");
+                sd.setVisible(true);
             } else {
                 JOptionPane.showMessageDialog(this, "Invalid email or password", "Error", JOptionPane.ERROR_MESSAGE);
             }
