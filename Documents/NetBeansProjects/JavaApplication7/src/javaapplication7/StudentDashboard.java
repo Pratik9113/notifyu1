@@ -5,6 +5,7 @@
 package javaapplication7;
 
 import java.awt.Color;
+import java.awt.Component;
 
 /**
  *
@@ -223,8 +224,8 @@ public class StudentDashboard extends javax.swing.JFrame {
 
     private void enrollnoticeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollnoticeMouseClicked
         // TODO add your handling code here:
-        StudentWorkshop ups= new StudentWorkshop();
-          JOptionPanel1.add(ups);//setVisible(true);
+        ButtonInTable ups= new  ButtonInTable();
+       Component add = JOptionPanel1.add(ups); //setVisible(true);
         ups.setVisible(true);
        
        // new code

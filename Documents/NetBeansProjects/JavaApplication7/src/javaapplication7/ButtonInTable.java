@@ -1,78 +1,119 @@
+package javaapplication7;
+import javax.swing.*;
 
-/*
-import java.util.List;
+import javax.swing.table.TableCellRenderer;
+import java.awt.*;
+
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+
 import javax.swing.JButton;
-import javax.swing.JFrame;
+
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
-*//*
-public class Studentworkshop extends javax.swing.JInternalFrame {
+
+public class ButtonInTable extends javax.swing.JInternalFrame {
     // private List<Integer> enrolledWorkshops = new ArrayList<>();
-    
-    
-      private void populateTableFromDatabase() {
-   var dbconn = DBConnection.connectDB();
- // Use your connectDB method
+    private void populateTableFromDatabase() {
+    var dbconn = DBConnection.connectDB();
+
     if (dbconn != null) {
         try {
-           
             String sqlQuery = "SELECT workshop_id, workshop_text FROM workshop";
-            PreparedStatement st = dbconn.prepareStatement(sqlQuery);
-            ResultSet resultSet = st.executeQuery(sqlQuery);
-            
-            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-            model.setRowCount(0);
+            try (PreparedStatement st = dbconn.prepareStatement(sqlQuery);
+                 ResultSet resultSet = st.executeQuery(sqlQuery)) {
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                model.setRowCount(0);
 
-            while (resultSet.next()) {
-                 int workshopId = resultSet.getInt("workshop_id");
-                String workshopText = resultSet.getString("workshop_text");
-                
-               model.addRow(new Object[]{workshopId,workshopText});
-                
-                // updated part
-                JButton enrollButton = new JButton("enroll");
-                 enrollButton.addActionListener(new ActionListener() {
-                        @Override
-                        public void actionPerformed(ActionEvent e) {
-                            // Handle the enrollment action here
-                            // For now, show a message dialog
-                             enrollStudentInWorkshop(workshopId);
-                          //  JOptionPane.showMessageDialog(null, "Enrolling in Workshop ID: " + workshopId);
-                        }
+                while (resultSet.next()) {
+                    int workshopId = resultSet.getInt("workshop_id");
+                    String workshopText = resultSet.getString("workshop_text");
+
+                    // Create a button for each row
+                    JButton enrollButton = new JButton("enroll");
+                    enrollButton.addActionListener((ActionEvent e) -> {
+                       /* int selectedRow = jTable1.getSelectedRow();
+                        if (selectedRow != -1) {
+                            int selectedWorkshopId = (int) jTable1.getValueAt(selectedRow, 0);
+                            enrollStudentInWorkshop(selectedWorkshopId);
+                        } else {*/
+                            JOptionPane.showMessageDialog(null, "Please select a workshop to enroll.");
+                      //  }
                     });
-                 
-                 // Add workshop data and the enroll button to the table row
-                    model.addRow(new Object[]{workshopId, workshopText,enrollButton});
-            }
 
-            resultSet.close();
-            st.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+                    // Add the data and button to the model
+                    model.addRow(new Object[]{workshopId, workshopText, enrollButton});
+                }
+                 jTable1.getColumnModel().getColumn(2).setCellRenderer(new ButtonRenderer());
+                 jTable1.getColumnModel().getColumn(2).setCellEditor(new ButtonEditor(new JTextField()));
+            }
+        } catch (SQLException e) {
         } finally {
             try {
                 dbconn.close();
             } catch (SQLException e) {
-                e.printStackTrace();
             }
         }
     }
-}*//*
+}
+
+    
+     /* private void populateTableFromDatabase() {
+    var dbconn = DBConnection.connectDB();
+    
+    if (dbconn != null) {
+        try {
+            String sqlQuery = "SELECT workshop_id, workshop_text FROM workshop";
+            try (PreparedStatement st = dbconn.prepareStatement(sqlQuery); ResultSet resultSet = st.executeQuery(sqlQuery)) {
+                DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+                model.setRowCount(0);
+                
+                while (resultSet.next()) {
+                    int workshopId = resultSet.getInt("workshop_id");
+                    String workshopText = resultSet.getString("workshop_text");
+                    
+                    model.addRow(new Object[]{workshopId, workshopText});
+                }
+                
+                // Add the "enroll" button outside the while loop
+                JButton enrollButton = new JButton("enroll");
+                enrollButton.addActionListener((ActionEvent e) -> {
+                    // Handle the enrollment action here
+                    // For now, show a message dialog
+                    int selectedRow = jTable1.getSelectedRow();
+                    if (selectedRow != -1) {
+                        int workshopId = (int) jTable1.getValueAt(selectedRow, 0);
+                        enrollStudentInWorkshop(workshopId);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Please select a workshop to enroll.");
+                    }
+                });
+                
+                model.addColumn("enroll");
+                for (int i = 0; i < model.getRowCount(); i++) {
+                    model.setValueAt(enrollButton, i, 3);
+                }
+            }
+        } catch (SQLException e) {
+        } finally {
+            try {
+                dbconn.close();
+            } catch (SQLException e) {
+            }
+        }
+    }
+}*/
+
       private void enrollStudentInWorkshop(int workshopId) {
     // Add your enrollment logic here
     // For now, you can show a message dialog as an example
     JOptionPane.showMessageDialog(null, "Enrolling in Workshop ID: " + workshopId);
-}*/
-  /*
-    public Studentworkshop() {
+}
+    public ButtonInTable() {
         //this.enrolledWorkshops = new ArrayList<>();
         
         initComponents();
@@ -83,7 +124,7 @@ public class Studentworkshop extends javax.swing.JInternalFrame {
     //    this.enrolledWorkshops = new ArrayList<>();
     }
 
-    *//*
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -109,7 +150,7 @@ public class Studentworkshop extends javax.swing.JInternalFrame {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -124,9 +165,9 @@ public class Studentworkshop extends javax.swing.JInternalFrame {
             jTable1.getColumnModel().getColumn(1).setMinWidth(200);
             jTable1.getColumnModel().getColumn(1).setPreferredWidth(200);
             jTable1.getColumnModel().getColumn(1).setMaxWidth(200);
-            jTable1.getColumnModel().getColumn(2).setMinWidth(100);
-            jTable1.getColumnModel().getColumn(2).setPreferredWidth(100);
-            jTable1.getColumnModel().getColumn(2).setMaxWidth(100);
+            jTable1.getColumnModel().getColumn(2).setMinWidth(50);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(50);
+            jTable1.getColumnModel().getColumn(2).setMaxWidth(50);
         }
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 470, 370));
@@ -144,13 +185,10 @@ public class Studentworkshop extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-*/
-/*
+
 public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Studentworkshop().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new StudentWorkshop().setVisible(true);
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -158,272 +196,49 @@ public static void main(String[] args) {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
-}
-*/
-/*
-package javaapplication7;
-import javax.swing.*;
-import javax.swing.event.CellEditorListener;
-import javax.swing.table.*;
-import java.awt.Component;
-
-import java.util.EventObject;
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.swing.table.DefaultTableModel;
-
-public class ButtonInTable {
-    
-public  void populateTableFromDatabase() {
-    var dbconn = DBConnection.connectDB();
-    
-    if (dbconn != null) {
-        try {
-            String sqlQuery = "SELECT workshop_id, workshop_text FROM workshop";
-            PreparedStatement st = dbconn.prepareStatement(sqlQuery);
-            ResultSet resultSet = st.executeQuery(sqlQuery);
-            DefaultTableModel model = (DefaultTableModel) JTable.getModel();
-            model.setRowCount(0);
-
-            while (resultSet.next()) {
-                 int workshop_id = resultSet.getInt("workshop_id");
-                String workshop_Text = resultSet.getString("workshop_text");
-                model.addRow(new Object[]{workshop_id,workshop_Text});
-            }
-
-            resultSet.close();
-            st.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                dbconn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+class ButtonRenderer extends JButton implements TableCellRenderer {
+        public ButtonRenderer() {
+            setOpaque(true);
         }
-    }
-}
 
-  public static void main(String[] args) {
-
-    DefaultTableModel tableModel;
-    tableModel = new DefaultTableModel(
-            new Object[][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-               {null, null, null},
-               {null, null, null},
-            new Object[] {"workshop_id", "workshop_text", "enroll"});
-
-    JTable table = new JTable(tableModel);
-    table.getColumn("enroll").setCellRenderer(new RendererAndEditor());
-    table.getColumn("enroll").setCellEditor(new RendererAndEditor());
-
-    JFrame f = new JFrame();
-    f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    f.getContentPane().add(new JScrollPane(table));
-    f.setBounds(300, 200, 400, 300);
-    f.setVisible(true);
-  }
-
-}
-class RendererAndEditor implements TableCellRenderer, TableCellEditor {
-
-  private JButton button;
-
-  RendererAndEditor() {
-    button = new JButton("Button");
-    button.addActionListener(new ActionListener() {
-      @Override
-      public void actionPerformed(ActionEvent e) {
-        JOptionPane.showMessageDialog(null, "Button clicked");
-      }
-    });
-  }
-
-  @Override
-  public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-                                                 boolean hasFocus, int row, int column) {
-    return button;
-  }
-
-  @Override
-  public java.awt.Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row,
-                                                        int column) {
-    return button;
-  }
-
-  @Override
-  public Object getCellEditorValue() {
-    return null;
-  }
-
-  @Override
-  public boolean isCellEditable(EventObject anEvent) {
-    return true;
-  }
-
-  @Override
-  public boolean shouldSelectCell(EventObject anEvent) {
-    return true;
-  }
-
-  @Override
-  public boolean stopCellEditing() {
-    return true;
-  }
-
-  @Override
-  public void cancelCellEditing() { }
-
-  @Override
-  public void addCellEditorListener(CellEditorListener l) { }
-
-  @Override
-  public void removeCellEditorListener(CellEditorListener l) { }
-}
-
-*/
-package javaapplication7;
-
-import javax.swing.*;
-import javax.swing.event.CellEditorListener;
-import javax.swing.table.*;
-import java.awt.Component;
-import java.util.EventObject;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.swing.table.DefaultTableModel;
-
-public class ButtonInTable {
-    private JTable table; // Declare the table as a class member
-
-    public ButtonInTable() {
-        table = new JTable(); // Initialize the table
-
-        DefaultTableModel tableModel = new DefaultTableModel(
-                new Object[][] {
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null}
-                },
-                new Object[] {"workshop_id", "workshop_text", "enroll"}
-        );
-
-        table.setModel(tableModel);
-
-        // Add the button renderer and editor to the "enroll" column
-        table.getColumn("enroll").setCellRenderer(new RendererAndEditor());
-        table.getColumn("enroll").setCellEditor(new RendererAndEditor());
-
-        JFrame f = new JFrame();
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.getContentPane().add(new JScrollPane(table));
-        f.setBounds(300, 200, 400, 300);
-        f.setVisible(true);
-
-        populateTableFromDatabase();
-    }
-
-    public void populateTableFromDatabase() {
-        var dbconn = DBConnection.connectDB();
-
-        if (dbconn != null) {
-            try {
-                String sqlQuery = "SELECT workshop_id, workshop_text FROM workshop";
-                PreparedStatement st = dbconn.prepareStatement(sqlQuery);
-                ResultSet resultSet = st.executeQuery(sqlQuery);
-                DefaultTableModel model = (DefaultTableModel) table.getModel(); // Use the class member table
-                model.setRowCount(0);
-
-                while (resultSet.next()) {
-                    int workshop_id = resultSet.getInt("workshop_id");
-                    String workshop_Text = resultSet.getString("workshop_text");
-                    model.addRow(new Object[]{workshop_id, workshop_Text, "Enroll"}); // Add a button text here
-                }
-
-                resultSet.close();
-                st.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    dbconn.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+            if (isSelected) {
+                setForeground(table.getSelectionForeground());
+                setBackground(table.getSelectionBackground());
+            } else {
+                setForeground(table.getForeground());
+                setBackground(UIManager.getColor("Button.background"));
             }
+            setText((value == null) ? "" : value.toString());
+            return this;
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new ButtonInTable();
+    class ButtonEditor extends DefaultCellEditor {
+        private final JButton button;
+
+        public ButtonEditor(JTextField textField) {
+            super(textField);
+            button = new JButton();
+            button.setOpaque(true);
+            button.addActionListener((ActionEvent e) -> {
+                fireEditingStopped();
+            });
+        }
+
+        @Override
+        public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
+            if (isSelected) {
+                button.setForeground(table.getSelectionForeground());
+                button.setBackground(table.getSelectionBackground());
+            } else {
+                button.setForeground(table.getForeground());
+                button.setBackground(table.getBackground());
             }
-        });
+
+            button.setText((value == null) ? "" : value.toString());
+            return button;
+        }
     }
-}
-
-class RendererAndEditor extends AbstractCellEditor implements TableCellRenderer, TableCellEditor {
-    private JButton button;
-
-    public RendererAndEditor() {
-        button = new JButton("Enroll");
-
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Enroll Button clicked");
-            }
-        });
-    }
-
-    @Override
-    public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
-                                                   boolean hasFocus, int row, int column) {
-        return button;
-    }
-
-    @Override
-    public Component getTableCellEditorComponent(JTable table, Object value, boolean isSelected, int row, int column) {
-        return button;
-    }
-
-    @Override
-    public Object getCellEditorValue() {
-        return null;
-    }
-
-    @Override
-    public boolean isCellEditable(EventObject anEvent) {
-        return true;
-    }
-
-    @Override
-    public boolean shouldSelectCell(EventObject anEvent) {
-        return true;
-    }
-
-    @Override
-    public boolean stopCellEditing() {
-        return true;
-    }
-
-    @Override
-    public void cancelCellEditing() { }
 }

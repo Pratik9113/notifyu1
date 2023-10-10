@@ -76,17 +76,17 @@ public class StudentWorkshop extends javax.swing.JInternalFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Wr_no", "workshop_text"
+                "Wr_no", "workshop_text", "enroll"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -104,6 +104,9 @@ public class StudentWorkshop extends javax.swing.JInternalFrame {
             jTable1.getColumnModel().getColumn(1).setMinWidth(5000);
             jTable1.getColumnModel().getColumn(1).setPreferredWidth(5000);
             jTable1.getColumnModel().getColumn(1).setMaxWidth(5000);
+            jTable1.getColumnModel().getColumn(2).setMinWidth(1000);
+            jTable1.getColumnModel().getColumn(2).setPreferredWidth(1000);
+            jTable1.getColumnModel().getColumn(2).setMaxWidth(1000);
         }
         jTable1.getAccessibleContext().setAccessibleDescription("");
 
