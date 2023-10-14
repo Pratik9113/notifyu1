@@ -59,11 +59,12 @@
           <SubComponents>
             <Component class="javax.swing.JTable" name="jTable1">
               <Properties>
+                <Property name="autoCreateRowSorter" type="boolean" value="true"/>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="3" rowCount="4">
                     <Column editable="false" title="workshop_id" type="java.lang.Object"/>
                     <Column editable="false" title="workshop_text" type="java.lang.Object"/>
-                    <Column editable="true" title="enroll" type="java.lang.Object"/>
+                    <Column editable="false" title="enroll" type="java.lang.Object"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -73,12 +74,12 @@
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="200" minWidth="200" prefWidth="200" resizable="true">
+                    <Column maxWidth="500" minWidth="500" prefWidth="500" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>
                     </Column>
-                    <Column maxWidth="50" minWidth="50" prefWidth="50" resizable="true">
+                    <Column maxWidth="500" minWidth="500" prefWidth="500" resizable="true">
                       <Title/>
                       <Editor/>
                       <Renderer/>

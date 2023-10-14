@@ -26,7 +26,7 @@ public class StudentDashboard extends javax.swing.JFrame {
         
          viewnotice.setBackground(DefaultColor);
          enrollnotice.setBackground(DefaultColor);
-         
+         enroll.setBackground(DefaultColor);
          //ready.setBackground(DefaultColor);
     }
 
@@ -54,6 +54,8 @@ public class StudentDashboard extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         enrollnotice = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        enroll = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
         JOptionPanel1 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -85,7 +87,7 @@ public class StudentDashboard extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setText("ViewNotice");
-        viewnotice.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 120, 39));
+        viewnotice.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 120, 39));
 
         viewnotice1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -152,9 +154,37 @@ public class StudentDashboard extends javax.swing.JFrame {
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel7.setText("workshop");
-        enrollnotice.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(47, 6, 119, 30));
+        enrollnotice.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 119, 30));
 
-        jPanel5.add(enrollnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 220, 50));
+        jPanel5.add(enrollnotice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, 220, 50));
+
+        enroll.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                enrollMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                enrollMousePressed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel9.setText("Enroll ");
+
+        javax.swing.GroupLayout enrollLayout = new javax.swing.GroupLayout(enroll);
+        enroll.setLayout(enrollLayout);
+        enrollLayout.setHorizontalGroup(
+            enrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, enrollLayout.createSequentialGroup()
+                .addContainerGap(69, Short.MAX_VALUE)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(42, 42, 42))
+        );
+        enrollLayout.setVerticalGroup(
+            enrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE)
+        );
+
+        jPanel5.add(enroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 220, 40));
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 280, 430));
 
@@ -189,6 +219,7 @@ public class StudentDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
           viewnotice.setBackground(ClickedColor);
           enrollnotice.setBackground(DefaultColor);
+          enroll.setBackground(DefaultColor);
 
     }//GEN-LAST:event_viewnoticeMousePressed
 
@@ -220,11 +251,12 @@ public class StudentDashboard extends javax.swing.JFrame {
         // TODO add your handling code here:viewnotice.setBackground(ClickedColor);
         viewnotice.setBackground(DefaultColor);
           enrollnotice.setBackground(ClickedColor);
+           enroll.setBackground(DefaultColor);
     }//GEN-LAST:event_enrollnoticeMousePressed
 
     private void enrollnoticeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollnoticeMouseClicked
         // TODO add your handling code here:
-        ButtonInTable ups= new  ButtonInTable();
+        StudentWorkshop ups= new  StudentWorkshop();
        Component add = JOptionPanel1.add(ups); //setVisible(true);
         ups.setVisible(true);
        
@@ -233,6 +265,20 @@ public class StudentDashboard extends javax.swing.JFrame {
           JOptionPanel1.add(ups);//setVisible(true);
         ups.setVisible(true)*/
     }//GEN-LAST:event_enrollnoticeMouseClicked
+
+    private void enrollMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollMousePressed
+        // TODO add your handling code here:\
+        viewnotice.setBackground(DefaultColor);
+          enrollnotice.setBackground(DefaultColor);
+          enroll.setBackground(ClickedColor);
+    }//GEN-LAST:event_enrollMousePressed
+
+    private void enrollMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_enrollMouseClicked
+        // TODO add your handling code here:
+        enrollworkshopforstudent ups= new  enrollworkshopforstudent();
+       Component add = JOptionPanel1.add(ups); //setVisible(true);
+        ups.setVisible(true);
+    }//GEN-LAST:event_enrollMouseClicked
   
 
 
@@ -273,6 +319,7 @@ public class StudentDashboard extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel JOptionPanel1;
+    private javax.swing.JPanel enroll;
     private javax.swing.JPanel enrollnotice;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -281,6 +328,7 @@ public class StudentDashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;

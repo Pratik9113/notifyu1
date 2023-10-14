@@ -8,6 +8,6 @@ package javaapplication7;
  *
  * @author 91799
  */
-public class Studentworkshop {
+class Jframe {
     
 }
