@@ -139,7 +139,7 @@ public class Register extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
                String fullname = rfullname.getText();
-               String emailaddress = rfullname.getText();
+               String emailaddress = remailaddress.getText();
                String password = new String(rpassword.getPassword());
               String phoneNumber = rphonenumber.getText();
 if (phoneNumber.length() != 10) {
