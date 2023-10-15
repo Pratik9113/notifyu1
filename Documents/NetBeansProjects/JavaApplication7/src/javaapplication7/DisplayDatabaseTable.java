@@ -62,7 +62,7 @@ import javax.swing.table.DefaultTableModel;
  class DisplayDatabaseTable {
     private JTable table; // Declare the table as a class member
 
-    public  DisplayDatabaseTable {
+    public DisplayDatabaseTable {
         table = new JTable(); // Initialize the table
 
         DefaultTableModel tableModel = new DefaultTableModel(
