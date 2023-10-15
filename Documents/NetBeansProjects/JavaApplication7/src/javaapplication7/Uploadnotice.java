@@ -4,9 +4,14 @@
  */
 package javaapplication7;
 
+import com.sun.jdi.connect.spi.Connection;
+import static java.lang.ProcessBuilder.Redirect.to;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.sql.Connection;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
@@ -88,19 +93,8 @@ public class Uploadnotice extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         String text = entertext.getText();
-        //String password = new String(userpassword.getPassword());
-//        String password = userpassword.getPassword().toString();
-     /*   if(text.isEmpty()){
-            JOptionPane.showMessageDialog(this,"email / password should not be empty","Error",JOptionPane.ERROR_MESSAGE);
-            
-        }
-      /*   char[] passwordChars = userpassword.getPassword(); // Get the password as a char[]
-    String password = new String(passwordChars); // Convert char[] to String
-
-    if (email.isEmpty() || password.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "Email / password should not be empty", "Error", JOptionPane.ERROR_MESSAGE);
-    }*/
-            userLogino(text);
+        userLogino(text);
+        sendSMSToAll(text);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -113,6 +107,41 @@ public class Uploadnotice extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
+     private void sendSMSToAll(String text) {
+         var dbconn = DBConnection.connectDB();
+
+        if (dbconn != null) {
+            try {
+                // Retrieve all phone numbers from your database
+                String query = "SELECT s_phonenumber FROM mysql.signup"; // Adapt table name
+                PreparedStatement st = dbconn.prepareStatement(query);
+                ResultSet resultSet = st.executeQuery();
+
+                // Create a list to store phone numbers
+                ArrayList<String> phoneNumbers = new ArrayList<>();
+
+                while (resultSet.next()) {
+                    phoneNumbers.add(resultSet.getString("s_phonenumber"));
+                }
+
+                // Send SMS to each recipient
+                for (String phoneNumber : phoneNumbers) {
+                    // Send SMS using the BulkSMS API
+                    API api = new API();
+                    api.sms("pratik9113", "APratik@8383", phoneNumber, text);
+                }
+
+                JOptionPane.showMessageDialog(this, "SMS sent to all recipients!");
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Uploadnotice.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            System.out.println("The database connection is not available.");
+        }
+    }
+
+    
     private void userLogino(String text) {
          var dbconn = DBConnection.connectDB();
     
@@ -120,31 +149,20 @@ public class Uploadnotice extends javax.swing.JInternalFrame {
         try {
             // Define the SQL query with placeholders for email and password
             String query = "insert into mysql.admindashboard(notice_text) values (?)";
-          //  String query1 = "SELECT CURRENT_DATE FROM DUAL";
-            // Create a prepared statement
             PreparedStatement st = dbconn.prepareStatement(query);
              st.setString(1, text);
-            // Date dt = new Date();
-           //  st.setDate(2, (java.sql.Date) dt);
-              
-            // Set the values for the placeholders
-           
-           // st.setString(2, password);
-          //    java.util.Date currentDate = new java.util.Date();
-
-            // Convert java.util.Date to java.sql.Date
-         //   java.sql.Date sqlDate = new java.sql.Date(currentDate.getTime());
-
-            // Set the date parameter in the prepared statement
-         //   st.setDate(2, sqlDate);
-
-            // Execute the query
  int rowsAffected = st.executeUpdate();
 
             if (rowsAffected > 0) {
                 // Insertion successful
                 dispose();
-                // You can perform other actions here if needed
+               // 1. dipose
+             /*  //2. changes 
+                 API api = new API();
+                    api.sms("pratik9113", "APratik@8383", s_phonenumber, text);
+
+                    JOptionPane.showMessageDialog(this, "Notice added and SMS sent successfully!");
+                // You can perform other actions here if needed*/
             } else {
                 JOptionPane.showMessageDialog(this, "Insertion failed", "Error", JOptionPane.ERROR_MESSAGE);
             }

@@ -17,7 +17,7 @@ public class API {
     String myPassword = "APratik@8383";
 
     // the details of the message we want to send
-    String myData = "{to: \"1111111\", encoding: \"UNICODE\", body: \"Dobrá práce! Jak se máš?\"}";
+        String myData = "{to: \""+to+"\", encoding: \"UNICODE\", body: \""+message+"\"}";
 
     // if your message does not contain unicode, the "encoding" is not required:
     // String myData = "{to: \"1111111\", body: \"Hello Mr. Smith!\"}";

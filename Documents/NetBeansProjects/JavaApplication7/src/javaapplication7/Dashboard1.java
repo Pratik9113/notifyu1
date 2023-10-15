@@ -5,7 +5,6 @@
 package javaapplication7;
 
 import java.awt.Color;
-import javax.swing.plaf.basic.BasicInternalFrameUI;
 /**
  *
  * @author 91799
